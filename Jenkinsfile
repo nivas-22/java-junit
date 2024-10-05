@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    
     stages {
         stage('Clone') {
             steps {
@@ -30,7 +31,8 @@ pipeline {
         
         stage('Upload Artifact') {
             steps {
-                sh 'aws s3 cp target/*.jar s3://nivascicd/'
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-credentials']]) {
+                    sh 'aws s3 cp target/helloworld-servlet-1.0-SNAPSHOT.jar s3://nivascicd/'
                 
 }
 }
