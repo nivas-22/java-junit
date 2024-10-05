@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-             sh 'git clone https://github.com/Abhiraj2310/java-junit-haelloworld.git'  
+             sh 'https://github.com/nivas-22/java-junit.git'  
             }      
         }
         stage('Build') {
@@ -30,7 +30,8 @@ pipeline {
         
         stage('Upload Artifact') {
             steps {
-                sh 'aws s3 cp target/*.jar s3://abhirajcicdjava/'
+                sh 'aws s3 cp target/*.jar s3://nivascicd/'
+                
 }
 }
 }
