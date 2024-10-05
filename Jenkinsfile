@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-             git 'https://github.com/nivas-22/java-junit.git'  
+              git branch: 'main', url: 'https://github.com/nivas-22/java-junit.git' 
             }      
         }
         stage('Build') {
